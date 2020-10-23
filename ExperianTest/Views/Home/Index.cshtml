@@ -1,0 +1,71 @@
+﻿@model ExperianTest.Models.Transaction
+
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "Change calculator";
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+
+<div class="text-center">
+    <h1 class="display-4">Enter transaction details</h1>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <div>
+            @Html.LabelFor(t => t.Cost)
+            @Html.EditorFor(t => t.Cost)
+        </div>
+        <div>
+            @Html.ValidationMessageFor(t => t.Cost)
+        </div>
+        <div>
+            @Html.LabelFor(t => t.Tendered)
+            @Html.EditorFor(t => t.Tendered)
+        </div>
+        <div>
+            @Html.ValidationMessageFor(t => t.Tendered)
+        </div>
+        <input type="submit" value="Calculate Change" />
+    }
+
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        <input type="submit" value="Clear" />
+    }
+
+    @if ((Model?.ChangeCalculated?.DenominationAmounts?.Count() ?? 0) > 0)
+    {
+        <div>Your change is:</div>
+        @foreach (var denomination in Model.ChangeCalculated.DenominationAmounts.OrderByDescending(key => key.Key))
+        {
+            var formattedDenomination = "";
+
+            if (denomination.Key > 99)
+            {
+                formattedDenomination = "£" + (denomination.Key / 100).ToString();
+            }
+            else
+            {
+                formattedDenomination = denomination.Key + "p";
+            }
+
+            <div>@Html.Raw(denomination.Value + " x " + formattedDenomination)</div>
+        }
+    }
+    else
+    {
+        @if (Model?.Tendered != null && Model?.Cost != null && Model.Tendered < Model.Cost)
+        {
+            <div>Not enough has been tendered, please check.</div>
+        }
+        else if (!((Model?.Tendered == null) || (Model?.Cost == null)))
+        {
+            <div>No change is due.</div>
+        }
+    }
+</div>
