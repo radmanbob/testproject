@@ -5,7 +5,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 
-namespace NUnitTestProject1
+namespace ExperianTest.Tests
 {
     public class ChangeCalculatorUnitTests
     {

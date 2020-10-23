@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 
-namespace NUnitTestProject1
+namespace ExperianTest.Tests
 {
     public class HomeControllerUnitTests
     {

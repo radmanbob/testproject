@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExperianTest", "ExperianTes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExperianTest.Classes", "ExperianTest.Classes\ExperianTest.Classes.csproj", "{3213B476-21F8-473C-AE6E-CB6689CAE181}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitTestProject1", "NUnitTestProject1\NUnitTestProject1.csproj", "{A31F222B-F170-4CD1-B26B-4A8C00FA62EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExperianTest.Tests", "NUnitTestProject1\ExperianTest.Tests.csproj", "{A31F222B-F170-4CD1-B26B-4A8C00FA62EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
