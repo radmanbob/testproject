@@ -50,7 +50,7 @@ namespace ExperianTest.Tests
             else
             {
                 // Ensure that an exception is raised if the tendered or cost amounts are too large
-                Assert.Throws<Exception>(() => _calculator.CalculateChange(transaction.Tendered, transaction.Cost));
+                Assert.Throws<ArgumentException>(() => _calculator.CalculateChange(transaction.Tendered, transaction.Cost));
             }
         }
 

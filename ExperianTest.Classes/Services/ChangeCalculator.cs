@@ -27,7 +27,7 @@ namespace ExperianTest.Services
             // Ensure that the tendered amount and cost are not too large to convert to an int32
             if (maxAmount < tendered  || maxAmount < cost)
             {
-                throw new Exception("Tendered or Cost amounts are greater than maximum allowed."); 
+                throw new ArgumentException("Tendered or Cost amounts are greater than maximum allowed."); 
             }
             
             tenderedAmount = Convert.ToInt32(tendered * 100);
