@@ -1,5 +1,4 @@
-﻿using ExperianTest.Models;
-using System;
+﻿using System;
 
 namespace ExperianTest.Services
 {
